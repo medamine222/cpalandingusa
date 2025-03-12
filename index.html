@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Win a Caribbean Getaway</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle, #1a7904, #0e4702);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .highlight {
+            color: #f4b400;
+            font-size: 28px;
+        }
+        .subtext {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .image-container {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .image-container img {
+            width: 100%;
+            display: block;
+        }
+        .countdown {
+            font-size: 18px;
+            font-weight: bold;
+            color: red;
+            margin: 10px 0;
+        }
+        .email-input {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .cta-button {
+            background: #4CAF50;
+            color: white;
+            font-size: 18px;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .cta-button:hover {
+            background: #45a049;
+        }
+        .terms {
+            font-size: 12px;
+            margin-top: 15px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            WIN A <span class="highlight">CARIBBEAN GETAWAY</span> FOR TWO
+        </div>
+        <div class="subtext">Drink In Your Hand. Toes In The Sand!</div>
+
+        <div class="image-container">
+            <img src="https://via.placeholder.com/600x300" alt="Caribbean Getaway">
+        </div>
+
+        <div class="countdown">Today's entry will expire in <span id="timer">12:00:00</span></div>
+
+        <input type="email" class="email-input" placeholder="Enter your email address" required>
+        <button class="cta-button">Continue →</button>
+
+        <div class="terms">
+            By clicking 'Continue', I agree to receive emails from TheAmericanSweepstakes and its partners. <br>
+            *Prize will be awarded in the form of a $25,000 check.
+        </div>
+    </div>
+
+    <script>
+        function startCountdown(duration) {
+            let timer = duration, hours, minutes, seconds;
+            setInterval(function () {
+                hours = parseInt(timer / 3600, 10);
+                minutes = parseInt((timer % 3600) / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                document.getElementById("timer").textContent = hours + ":" + minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            startCountdown(43200); // 12 hours countdown
+        };
+    </script>
+
+</body>
+</html>
